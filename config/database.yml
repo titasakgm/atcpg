@@ -1,0 +1,26 @@
+development:
+  adapter: postgresql
+  encoding: unicode
+  database: atcpg_development
+  port: 6543
+  pool: 5
+  username: admin
+  password:
+
+test:
+  adapter: postgresql
+  encoding: unicode
+  database: atcpg_test
+  port: 6543
+  pool: 5
+  username: postgres
+  password:
+
+production:
+  adapter: postgresql
+  encoding: unicode
+  database: atcpg_production
+  port: 6543
+  pool: 5
+  username: postgres
+  password:

@@ -1,0 +1,33 @@
+<h1>ATC/DDD Index</h1>
+
+<table id="atccodes">
+  <thead>
+  <tr>
+    <th>Code</th>
+    <th>Detail</th>
+    <th>Link to WHOCC</th>
+    <% if @x %>
+      <th>Action</th>
+    <% end %>
+  </tr>
+  </thead>
+  <tbody>
+  <% @atccodes.each do |atccode| %>
+    <tr>
+      <td><%= atccode.code %></td>
+      <td><%=raw newformat(atccode.detail) %></td>
+      <% atc7 = atccode.code[0..6] %>
+      <% wholink = "http://www.whocc.no/atc_ddd_index/?code=#{atc7}&showdescription=yes" %>
+      <td><%= link_to 'More..', wholink, :target => '_blank' %></td>
+      <% if @x %>
+        <td><%= link_to 'Edit', edit_atccode_path(atccode), :class => 'btn btn-mini' %></td>
+      <% end %>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+
+<br />
+
+<%# link_to 'New Atccode', new_atccode_path %>
+<%# link_to 'Edit', edit_atccode_path(atccode), :class => 'btn btn-mini' %>
